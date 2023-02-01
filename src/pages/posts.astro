@@ -1,0 +1,42 @@
+---
+interface Post {
+	title: string;
+	body: string;
+	id: number;
+}
+
+import Layout from '../layouts/Layout.astro';
+import PostListItem from '../components/PostListItem.vue';
+import PostListItemDark from '../components/PostListItemDark';
+
+const response = await fetch(`${import.meta.env.API_BASE_URL}/posts`);
+const posts = await response.json();
+
+const page = Number(Astro.url.searchParams.get('page')) || 1
+const renderedPosts = posts.splice((page - 1) * 16, 16)
+const renderedPostsLoad = renderedPosts.splice(0, 8)
+const renderedPostsVisible = renderedPosts.splice(0, 8)
+---
+
+<Layout title="Posts">
+    {
+        renderedPostsLoad.length ? renderedPostsLoad.map((post: Post) => (
+            <PostListItem
+                id={post.id}
+                title={post.title}
+                body={post.body}
+            />
+        )) : <p>What page is this?</p>
+    }
+
+    {
+        renderedPostsVisible.length && renderedPostsVisible.map((post: Post) => (
+            <PostListItemDark client:visible
+                id={post.id}
+                title={post.title}
+                body={post.body}
+            />
+        ))
+    }
+    
+</Layout>
