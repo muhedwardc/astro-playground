@@ -32,14 +32,14 @@ const renderedPostsVisible = renderedPosts.splice(0, 8)
         }
 
         {
-            renderedPostsVisible.length && renderedPostsVisible.map((post: Post) => (
+            renderedPostsVisible.length ? renderedPostsVisible.map((post: Post) => (
                 <PostListItemDark client:visible
                     id={post.id}
                     sub="solidJS, client:visible"
                     title={post.title}
                     body={post.body}
                 />
-            ))
+            )) : ''
         }
     </ul>
     
