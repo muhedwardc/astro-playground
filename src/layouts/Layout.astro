@@ -21,7 +21,7 @@ const { title, isHome } = Astro.props;
 			<div class="flex justify-between items-center mb-6">
 				<h1 class="text-gradient">{title}</h1>
 
-				{ !isHome && <a href="/" class="mb-[-12px]"><h3 class="text-[#444] underline">Back to Home</h3></a> }
+				{ !isHome && <a href="/" class="mb-[-12px] text-[#444] underline">Back to Home</a> }
 			</div>
 
 			<slot />
