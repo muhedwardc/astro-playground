@@ -2,10 +2,11 @@ interface Post {
     id: number;
     title: string;
     body: string;
+    sub: string;
 }
 
 
-const PostListItemDark = ({ id, title, body }: Post) => {
+const PostListItemDark = ({ id, title, body, sub }: Post) => {
     return (
         <li class="
             mt-6
@@ -13,20 +14,22 @@ const PostListItemDark = ({ id, title, body }: Post) => {
             list-none
             p-[0.15rem]
             flex
-            bg-slate-800
+            bg-purple-800
             rounded-[0.5rem]
             text-white
             shadow-lg
             border-2
             hover:border-accent
             hover:bg-gradient-to-r
-            hover:from-slate-800
-            hover:to-slate-600
+            hover:from-purple-800
+            hover:to-purple-400
+            transition-all
         "
         >
             <a href={`/post/${id}`} class="no-underline leading-[1.4] px-[1.3rem] py-[1rem] opacity-80">
-                <h2 class="font-bold m-0 text-md">{ title }</h2>
-                <p class="mt-2 mb-0 text-white">{ body }</p>
+                <h2 class="m-0 text-md">{ title }</h2>
+                <p class="mt-2 mb-0 text-slate-200">{ body }</p>
+                <p class="mt-3 mb-0 text-slate-100 float-right italic">{ sub }</p>
             </a>
         </li>
     )

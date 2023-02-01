@@ -3,6 +3,7 @@
     <a :href="`/post/${id}`">
       <h2>{{ title }}</h2>
       <p>{{ body }}</p>
+      <p class="float-right italic">{{ sub }}</p>
     </a>
   </li>
 </template>
@@ -13,6 +14,10 @@ export default {
   props: {
     id: {
       type: Number,
+      required: true,
+    },
+    sub: {
+      type: String,
       required: true,
     },
     title: {
