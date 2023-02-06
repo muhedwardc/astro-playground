@@ -1,45 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Welcome" isHome>
-	<p class="description">This Project is using the <a href="https://jsonplaceholder.typicode.com" target="_blank"><code>JSONPlaceholder API</code></a></p>
-	<ul role="list" class="link-card-grid">
-		<Card
-			href="/posts"
-			title="Post"
-			body="See all the posts."
-		/>
-		<Card
-			href="/albums"
-			title="Album"
-			body="See all the albums."
-		/>
-	</ul>
+  <p class="description">
+    This Project is using the <a
+      href="https://jsonplaceholder.typicode.com"
+      target="_blank"
+      ><code>JSONPlaceholder API</code>
+    </a>
+  </p>
+  <ul role="list" class="link-card-grid">
+    <Card href="/posts" title="Posts" body="See all the posts." />
+    <Card href="/articles" title="Articles" body="See all the articles." />
+  </ul>
 </Layout>
 
 <style>
-	.description {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.description code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  .description {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .description code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
 </style>

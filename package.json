@@ -19,5 +19,8 @@
     "astro": "^2.0.6",
     "solid-js": "^1.6.10",
     "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "simple-astro-seo": "^0.1.3"
   }
 }

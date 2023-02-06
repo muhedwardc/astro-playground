@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+import ArticleItem from "../components/ArticleItem.astro";
+
+const articles = await getCollection("article");
+---
+
+<Layout title="Articles">
+  <ul>
+    {
+      articles.map((article) => (
+        <ArticleItem
+          slug={article.slug}
+          title={article.data.title}
+          description={article.data.description}
+        />
+      ))
+    }
+  </ul>
+</Layout>
