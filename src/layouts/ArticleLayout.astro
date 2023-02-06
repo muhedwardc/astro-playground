@@ -8,7 +8,8 @@ export interface Props {
 import SEO from "simple-astro-seo";
 
 const { title, description, image } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.url);
 ---
 
@@ -19,7 +20,7 @@ const imageURL = new URL(image, Astro.url);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Ed Astro - {title}</title>
     <SEO
       image={imageURL.href}
       title={title}
