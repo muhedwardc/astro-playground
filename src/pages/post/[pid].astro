@@ -7,11 +7,12 @@ import Error404 from "../404.astro";
 const { pid } = Astro.params;
 const response = await fetch(`${import.meta.env.API_BASE_URL}/posts/${pid}`);
 const post = await response.json();
+const hasPost = !!Object.keys(post || {})?.length;
 const userAPI = `${import.meta.env.API_BASE_URL}/users/${post?.userId}`;
 ---
 
 {
-  !!post?.length ? (
+  hasPost ? (
     <Layout title="Posts">
       <Post post={post}>
         <PostAuthor client:load userAPI={userAPI} />
